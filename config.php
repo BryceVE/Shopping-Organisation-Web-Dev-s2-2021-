@@ -16,4 +16,10 @@ function createTable($sqlStmt, $tableName)
 
 $createUserTableQuery = file_get_contents("sql/create-user.sql");
 createTable($createUserTableQuery, "User");
+$createProductsTableQuery = file_get_contents("sql/create-products.sql");
+createTable($createProductsTableQuery, "Products");
+$createOrderDetailsTableQuery = file_get_contents("sql/create-orderDetails.sql");
+createTable($createOrderDetailsTableQuery, "Order Details");
+$createMessagingTableQuery = file_get_contents("sql/create-messaging.sql");
+createTable($createMessagingTableQuery, "Messages");
 ?>
