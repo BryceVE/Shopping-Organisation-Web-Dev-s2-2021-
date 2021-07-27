@@ -1,6 +1,6 @@
-create  table IF NOT EXISTS user
+create table IF NOT EXISTS user
 (
-    user_id INTERGER not null primary key,
+    user_id INTEGER not null PRIMARY KEY AUTOINCREMENT ,
     username TEXT,
     password TEXT,
     name TEXT,
