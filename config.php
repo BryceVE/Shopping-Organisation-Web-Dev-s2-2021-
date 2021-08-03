@@ -11,7 +11,7 @@ function createTable($sqlStmt, $tableName)
     $stmt = $conn->prepare($sqlStmt);
     if ($stmt->execute()) {
         //success message
-        echo "<p style='color: green'>" . $tableName . ": Table Created Successfully</p>";
+        //echo "<p style='color: green'>" . $tableName . ": Table Created Successfully</p>";
     } else {
         //error message
         echo "<p style='color: red'>" . $tableName . ": Table Created Failure</p>";
@@ -49,7 +49,7 @@ function addUser($username, $unhashedPassword, $name, $profilePic, $accessLevel)
     $sqlstmt->bindValue(':accessLevel', $accessLevel);
     //displays success message or error message
     if ($sqlstmt->execute()) {
-        echo "<p style='color: green'>User: ".$username. ": Created Successfully</p>";
+        //echo "<p style='color: green'>User: ".$username. ": Created Successfully</p>";
     } else {
         echo "<p style='color: red'>User: ".$username. ": Created Failure</p>";
     }
@@ -78,7 +78,7 @@ function addProduct($productName, $category, $quantity, $price, $image, $code) {
     $sqlstmt->bindValue(':image', $image);
     $sqlstmt->bindValue(':code', $code);
     if ($sqlstmt->execute()) {
-        echo "<p style='color: blue'>Product: ".$productName. ": Created Successfully</p>";
+        //echo "<p style='color: blue'>Product: ".$productName. ": Created Successfully</p>";
     } else {
         echo "<p style='color: red'>Product: ".$productName. ": Created Failure</p>";
     }
