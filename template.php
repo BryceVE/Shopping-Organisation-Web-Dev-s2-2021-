@@ -1,4 +1,5 @@
 <?php require_once 'config.php'; ?>
+<?php include 'login.php'; ?>
 
 <html>
 <head>
@@ -28,6 +29,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.php">User Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registration.php">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -35,3 +45,19 @@
 
 
 <script src="js/bootstrap.bundle.js"></script>
+
+<?php
+function sanitise_data($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+function outputFooter()
+{
+    date_default_timezone_set('Australia/Canberra');
+    echo "<footer>This page was last modified: " . date("F d Y H:i:s.", filemtime("index.php")) . "</footer>";
+}
+?>
