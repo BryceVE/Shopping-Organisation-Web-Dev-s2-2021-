@@ -2,6 +2,18 @@
 <title>User Registration</title>
 <h1 class='text-primary'>User Registration</h1>
 
+<!-- A javascript function to preview the new profile picture the user has chosen -->
+<script type="text/javascript">
+    function preview_image(event){
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('output_image');
+            output.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
     <div class="container-fluid">
         <div class="row">
@@ -19,7 +31,8 @@
                 <!--More details-->
                 <p>Please enter More Personal Details:</p>
                 <p>Name<input type="text" name="name" class="form-control" required="required"></p>
-                <p>Profile Picture <input type="file" name="file" class="form-control" required="required"></p>
+                <p>Profile Picture <input type="file" name="file" class="form-control" required="required" onchange="preview_image(event)" accept="image/*"></p>
+                <p>Image preview: <img id="output_image" width="100"></p>
             </div>
         </div>
     </div>
