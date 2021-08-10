@@ -18,6 +18,7 @@
         </div>
         <div class="col-md-6">
 
+            <!-- Login Form -->
             <?php if (!isset($_SESSION["username"])) : ?>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                     <div class="form-group">

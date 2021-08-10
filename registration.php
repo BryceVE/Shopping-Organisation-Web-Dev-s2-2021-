@@ -20,15 +20,16 @@
             <!--Customer Details-->
 
             <div class="col-md-6">
+                <!--Account details-->
                 <h2>Account Details</h2>
-                <p>Please enter wanted username and password:</p>
+                <p>Please enter username and password:</p>
                 <p>User Name<input type="text" name="username" class="form-control" required="required"></p>
                 <p>Password<input type="password" name="password" class="form-control" required="required"></p>
 
             </div>
             <div class="col-md-6">
-                <h2>More Details</h2>
                 <!--More details-->
+                <h2>More Details</h2>
                 <p>Please enter More Personal Details:</p>
                 <p>Name<input type="text" name="name" class="form-control" required="required"></p>
                 <p>Profile Picture <input type="file" name="file" class="form-control" required="required" onchange="preview_image(event)" accept="image/*"></p>
@@ -56,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 // User Registration commences
 
-//for the user-hashed table.
+//for the user-hashed table. Hashes te password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 //for the image table.
