@@ -58,6 +58,9 @@
             <?php if (!isset($_SESSION["username"])) : ?>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="index.php">Log in</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="registration.php">Register</a>
                     </li>
                 </ul>
@@ -67,7 +70,10 @@
             <?php if (isset($_SESSION["username"])) : ?>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="profile.php">User Profile</a>
+                        <img src="images/profile_pictures/<?php echo $_SESSION['profilePicture'] ?>" style="width: 35px; margin-top: 40%">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.php">Hello <?php echo $_SESSION["username"] ?><br> Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
