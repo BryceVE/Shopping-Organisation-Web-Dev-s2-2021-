@@ -10,13 +10,13 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
 
             Default user: user, user <br>
             Default admin: admin, admin
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
 
             <!-- Login Form -->
             <?php if (!isset($_SESSION["username"])) : ?>

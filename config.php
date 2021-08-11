@@ -91,16 +91,16 @@ $productCount = $rowCount["count"];
 
 //if there are no rows (products) inserts products using the addProduct function
 if ($productCount == 0){
-    addProduct("Sydney Opera House", "Buildings", 10, 20, "https://cdn.shopify.com/s/files/1/0195/3230/products/NBH_052SYDNEYOPERAHOUSE_1024x.jpg?v=1596033399", "37c7ie3");
-    addProduct("Leaning Tower of Pisa", "Buildings", 10, 30, "https://cdn.shopify.com/s/files/1/0195/3230/products/NBH_199LeaningTowerOfPisa_fe4e19df-35ad-47b4-adcf-1f3cb50e230a_1024x.jpg?v=1596105376", "sj6ksa9");
-    addProduct("Taj Mahal", "Buildings", 10, 70, "https://cdn.shopify.com/s/files/1/0195/3230/products/NB_032TAJMAHALDELUXE02_1024x.jpg?v=1596094014", "3hlam7s");
-    addProduct("Himeji Castle", "Buildings", 10, 20, "https://cdn.shopify.com/s/files/1/0195/3230/products/NBH_197HIMEJICASTLE_1024x.jpg?v=1596034273", "akl90an");
-    addProduct("Windmill", "Buildings", 10, 20, "https://cdn.shopify.com/s/files/1/0195/3230/products/NBH_043Windmill_1024x.jpg?v=1596108179", "nm89sh2");
-    addProduct("Pirate Ship", "Transport", 10, 90, "https://cdn.shopify.com/s/files/1/0195/3230/products/NB_050_hontai_6_1024x.png?v=1612854686", "hfn5lks");
-    addProduct("Titanic", "Transport", 10, 80, "https://cdn.shopify.com/s/files/1/0195/3230/products/NB_021DELUXETITANIC01_1024x.jpg?v=1596036164", "asdjhk6");
-    addProduct("Tram", "Transport", 10, 20, "https://cdn.shopify.com/s/files/1/0195/3230/products/NBH_102MELBOURNETRAM_1024x.jpg?v=1596033714", "b8sn642");
-    addProduct("Motorcycle", "Transport", 10, 15, "https://cdn.shopify.com/s/files/1/0195/3230/products/NBC_329_MOTORCYCLE_1024x.jpg?v=1600926369", "bv763ns");
-    addProduct("Taxi", "Transport", 10, 20, "https://cdn.shopify.com/s/files/1/0195/3230/products/NBH_141LONDONTAXIBLACKCAB01_1024x.jpg?v=1596034598", "sdnmio4");
+    addProduct("Sydney Opera House", "Buildings", 10, 20, "SydneyOperaHouse.jpg", "37c7ie3");
+    addProduct("Leaning Tower of Pisa", "Buildings", 10, 30, "TowerOfPisa.jpg", "sj6ksa9");
+    addProduct("Taj Mahal", "Buildings", 10, 70, "TajMahal.jpg", "3hlam7s");
+    addProduct("Himeji Castle", "Buildings", 10, 20, "HimejiCastle.jpg", "akl90an");
+    addProduct("Windmill", "Buildings", 10, 20, "Windmill.jpg", "nm89sh2");
+    addProduct("Pirate Ship", "Transport", 10, 90, "PirateShip.png", "hfn5lks");
+    addProduct("Titanic", "Transport", 10, 80, "Titanic.jpg", "asdjhk6");
+    addProduct("Tram", "Transport", 10, 20, "Tram.jpg", "b8sn642");
+    addProduct("Motorcycle", "Transport", 10, 15, "Motorcycle.jpg", "bv763ns");
+    addProduct("Taxi", "Transport", 10, 20, "Taxi.jpg", "sdnmio4");
 
     //addProduct("", "", "", "", "", "");
 }
