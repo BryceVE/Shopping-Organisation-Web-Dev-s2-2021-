@@ -37,7 +37,7 @@
                 </li>
             </ul>
 
-            <!--Left side of Navbar-->
+            <!--          Left side of Navbar          -->
 
             <!--Authenticated user-->
             <?php if (isset($_SESSION["username"])) : ?>
@@ -51,7 +51,7 @@
             <?php endif; ?>
 
 
-            <!--Right side of Navbar-->
+            <!--        Right side of Navbar        -->
 
             <div class="mx-auto order-0"></div>
             <!--Unauthenticated user-->
