@@ -91,16 +91,25 @@ $productCount = $rowCount["count"];
 
 //if there are no rows (products) inserts products using the addProduct function
 if ($productCount == 0){
+    //buildings category
     addProduct("Sydney Opera House", "Buildings", 10, 20, "SydneyOperaHouse.jpg", "37c7ie3");
     addProduct("Leaning Tower of Pisa", "Buildings", 10, 30, "TowerOfPisa.jpg", "sj6ksa9");
     addProduct("Taj Mahal", "Buildings", 10, 70, "TajMahal.jpg", "3hlam7s");
     addProduct("Himeji Castle", "Buildings", 10, 20, "HimejiCastle.jpg", "akl90an");
     addProduct("Windmill", "Buildings", 10, 20, "Windmill.jpg", "nm89sh2");
+    //transport category
     addProduct("Pirate Ship", "Transport", 10, 90, "PirateShip.png", "hfn5lks");
     addProduct("Titanic", "Transport", 10, 80, "Titanic.jpg", "asdjhk6");
     addProduct("Tram", "Transport", 10, 20, "Tram.jpg", "b8sn642");
     addProduct("Motorcycle", "Transport", 10, 15, "Motorcycle.jpg", "bv763ns");
     addProduct("Taxi", "Transport", 10, 20, "Taxi.jpg", "sdnmio4");
+    //animals category
+    addProduct("Koala", "Animals", 10, 20, "Koala.jpg", "akisk4s");
+    addProduct("Kangaroo", "Animals", 10, 20, "Kangaroos.jpg", "km538vc");
+    addProduct("Dog", "Animals", 10, 10, "Dog.jpg", "Cut3d0g");
+    addProduct("Kookaburra", "Animals", 10, 10, "Kookaburra.jpg", "sni874m");
+    addProduct("Killer Whale", "Animals", 10, 10, "KillerWhale.jpg", "olvm87g");
+
 
     //addProduct("", "", "", "", "", "");
 }
