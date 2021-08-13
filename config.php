@@ -98,8 +98,8 @@ if ($productCount == 0){
     addProduct("Himeji Castle", "Buildings", 10, 20, "HimejiCastle.jpg", "akl90an");
     addProduct("Windmill", "Buildings", 10, 20, "Windmill.jpg", "nm89sh2");
     //transport category
-    addProduct("Pirate Ship", "Transport", 10, 90, "PirateShip.png", "hfn5lks");
-    addProduct("Titanic", "Transport", 10, 80, "Titanic.jpg", "asdjhk6");
+    addProduct("Pirate Ship", "Transport", 10, 90, "PirateShip.png", "CarAb3n");
+    addProduct("Titanic", "Transport", 10, 80, "Titanic.jpg", "H01dM3J");
     addProduct("Tram", "Transport", 10, 20, "Tram.jpg", "b8sn642");
     addProduct("Motorcycle", "Transport", 10, 15, "Motorcycle.jpg", "bv763ns");
     addProduct("Taxi", "Transport", 10, 20, "Taxi.jpg", "sdnmio4");
@@ -108,8 +108,13 @@ if ($productCount == 0){
     addProduct("Kangaroo", "Animals", 10, 20, "Kangaroos.jpg", "km538vc");
     addProduct("Dog", "Animals", 10, 10, "Dog.jpg", "Cut3d0g");
     addProduct("Kookaburra", "Animals", 10, 10, "Kookaburra.jpg", "sni874m");
-    addProduct("Killer Whale", "Animals", 10, 10, "KillerWhale.jpg", "olvm87g");
-
+    addProduct("Killer Whale", "Animals", 10, 10, "KillerWhale.jpg", "SW1lb3r");
+    //fantasy category
+    addProduct("Unicorn", "Fantasy", 10, 10, "Unicorn.jpg", "Gg3raed");
+    addProduct("Pegasus", "Fantasy", 10, 10, "Pegasus.jpg", "l0rdfqd");
+    addProduct("Dragon", "Fantasy", 10, 50, "Dragon.jpg", "e1isbth");
+    addProduct("Werewolf", "Fantasy", 10, 10, "Werewolf.jpg", "Rl0op1n");
+    addProduct("Phoenix", "Fantasy", 10, 10, "Phoenix.jpg", "fawk3s");
 
     //addProduct("", "", "", "", "", "");
 }
