@@ -16,6 +16,9 @@
 
 
 <?php
+//sets the correct time zone
+date_default_timezone_set("Australia/Sydney");
+
 //removes error at top of page on first load
 $status = "";
 
@@ -58,7 +61,7 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
 
 <!--displays the status box on page after removing a product-->
 <div class="message_box"style="margin:10px 0px;">
-<?php echo $status; //line 31?>
+<?php echo $status;?>
 </div>
 
 <div class="cart">
@@ -149,6 +152,30 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
             </tr>
         </tbody>
     </table>
+    <form method="post">
+        <input type="submit" name="orderProducts" value="Order Now"/>
+    </form>
     <?php
 } //ends the if statement
+
+
+if(isset($_POST['orderProducts'])) {
+// Writing the order to the database
+$orderNumber ="ORDER".substr(md5(uniqid(mt_rand(),true)), 0, 8);
+//for each product being submitted do the following
+foreach($_SESSION["shopping_cart"]as$row) {
+            $customerID = $_SESSION["user_id"];
+            $productCode = $row['code'];
+            $quantity = $row['quantity'];
+            $orderDate =date("Y-m-d h:i:sa");
+
+// Write to the Database.
+$conn->exec("INSERT INTO orderDetails (orderCode,userID, productCode, orderDate, quantity) VALUES('$orderNumber','$customerID','$productCode','$orderDate', '$quantity')");
+        }
+    $_SESSION["shopping_cart"] = [];
+}
+
+
+
+
 ?>

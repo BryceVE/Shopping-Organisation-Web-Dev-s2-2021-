@@ -25,10 +25,10 @@ createTable($createUserTableQuery, "User");
 //creates products table
 $createProductsTableQuery = file_get_contents("sql/create-products.sql");
 createTable($createProductsTableQuery, "Products");
-/*
 //creates order details table
 $createOrderDetailsTableQuery = file_get_contents("sql/create-orderDetails.sql");
 createTable($createOrderDetailsTableQuery, "Order Details");
+/*
 //creates messages table
 $createMessagingTableQuery = file_get_contents("sql/create-messaging.sql");
 createTable($createMessagingTableQuery, "Messages");
