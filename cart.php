@@ -16,6 +16,8 @@
 
 
 <?php
+//removes error at top of page on first load
+$status = "";
 
 //function to remove item from shopping cart
 if (isset($_POST['action']) && $_POST['action'] == "remove") {
@@ -28,7 +30,7 @@ if (isset($_POST['action']) && $_POST['action'] == "remove") {
                 //unset / delete that session variable out of the shopping cart array
                 unset($_SESSION["shopping_cart"][$key]);
                 //output the status saying that the product was removed successfully
-                $status = "<div class='box' style='color:red;'>Product is removed from your cart!</div>";
+                $status = "<div class='box' style='color:green;'>Product is removed from your cart!</div>";
             }
             //if the shopping cart is not empty
             if (empty($_SESSION["shopping_cart"]))
@@ -54,6 +56,10 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
 }
  ?>
 
+<!--displays the status box on page after removing a product-->
+<div class="message_box"style="margin:10px 0px;">
+<?php echo $status; //line 31?>
+</div>
 
 <div class="cart">
     <?php
