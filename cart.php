@@ -156,26 +156,42 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
         <input type="submit" name="orderProducts" value="Order Now"/>
     </form>
     <?php
-} //ends the if statement
+} //ends the if something in shopping cart statement
 
 
+//      Writing the order to the database      //
+//if the order submit button if pressed
 if(isset($_POST['orderProducts'])) {
-// Writing the order to the database
-$orderNumber ="ORDER".substr(md5(uniqid(mt_rand(),true)), 0, 8);
-//for each product being submitted do the following
-foreach($_SESSION["shopping_cart"]as$row) {
+    //if the user id is set / if the user is logged in
+    if (isset($_SESSION['user_id'])){
+        //creates a randomly generated order code starting with "ORDER"
+        $orderNumber ="ORDER".substr(md5(uniqid(mt_rand(),true)), 0, 8);
+        //for each product being submitted do the following
+        foreach($_SESSION["shopping_cart"]as$row) {
+            //putting session variables about the user into variables
             $customerID = $_SESSION["user_id"];
             $productCode = $row['code'];
             $quantity = $row['quantity'];
-            $orderDate =date("Y-m-d h:i:sa");
+            $orderDate = date("Y-m-d h:i:sa");
 
-// Write to the Database.
-$conn->exec("INSERT INTO orderDetails (orderCode,userID, productCode, orderDate, quantity) VALUES('$orderNumber','$customerID','$productCode','$orderDate', '$quantity')");
+            //write to the orderDetails table in database.
+            $conn->exec("INSERT INTO orderDetails (orderCode,userID, productCode, orderDate, quantity) VALUES('$orderNumber','$customerID','$productCode','$orderDate', '$quantity')");
         }
+    //clears the shopping cart
     $_SESSION["shopping_cart"] = [];
+
+    } else { //if user is not logged in
+        //login error popup message
+        echo "<p><script type='text/javascript'>alert('You are not logged in! Please go to home page to log in or register an account.')</script></p>";
+
+        //login here button takes the user to home page
+        echo '<button id="Home_page" class="btn btn-primary" style="margin-left: 45%">Login Here</button>';?>
+    <script type="text/javascript">
+        document.getElementById("Home_page").onclick = function () {
+            location.href = "index.php";
+        };
+    </script>
+    <?php
+    }
 }
-
-
-
-
 ?>
