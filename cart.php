@@ -1,4 +1,6 @@
-<?php include "template.php";
+<?php ob_start(); //sometimes header redirects dont work this fixes the problem
+
+include "template.php";
 
 /**
  * Shopping Cart.
@@ -179,6 +181,7 @@ if(isset($_POST['orderProducts'])) {
         }
     //clears the shopping cart
     $_SESSION["shopping_cart"] = [];
+    header("location:invoice.php");
 
     } else { //if user is not logged in
         //login error popup message
@@ -194,4 +197,5 @@ if(isset($_POST['orderProducts'])) {
     <?php
     }
 }
+ob_end_flush(); //sometimes header redirects dont work this fixes the problem
 ?>
