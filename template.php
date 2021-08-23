@@ -38,16 +38,13 @@
 
 
             <!--          Left side of Navbar          -->
-
             <!--Authenticated user-->
             <?php if (isset($_SESSION["username"])) : ?>
                 <li class="nav-item">
                     <a class="nav-link" href="invoice.php">Invoice</a>
                 </li>
-
                 <!--Admin user-->
                 <?php if ($_SESSION["level"] == "Administrator") : ?>
-
 
                 <?php endif; ?>
             <?php endif; ?>
@@ -55,7 +52,6 @@
 
 
             <!--        Right side of Navbar        -->
-
             <div class="mx-auto order-0"></div>
             <!--Unauthenticated user-->
             <?php if (!isset($_SESSION["username"])) : ?>

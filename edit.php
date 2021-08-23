@@ -111,6 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt = $conn->prepare($sql);
                 $stmt->bindValue(':newFileName', $fileNameNew);
                 $stmt->execute();
+                $_SESSION['profilePicture'] = $fileNameNew;
                 header("location:index.php");
             } else {
                 echo "Your image is too big!";
