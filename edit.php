@@ -32,6 +32,19 @@ if (isset($_SESSION["username"])) {
 }
 ?>
 
+    <!-- A javascript function to preview the new profile picture the user has chosen -->
+    <script type="text/javascript">
+        function preview_image(event){
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('output_image');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
+
     <!--Displays user information-->
     <div class="container-fluid">
         <div class="row">
@@ -48,7 +61,8 @@ if (isset($_SESSION["username"])) {
                       enctype="multipart/form-data">
                     <p>Name: <input type="text" name="name" value="<?php echo $name ?>"></p>
                     <p>Access Level: <input type="text" name="accessLevel" value="<?php echo $accessLevel ?>"></p>
-                    <p>Profile Picture: <input type="file" name="file"></p>
+                    <p>Profile Picture: <input type="file" name="file" onchange="preview_image(event)" accept="image/*"></p>
+                    <p><div style="color: darkgrey">Profile picture preview:</div><img id="output_image" width="130"></p>
                     <input type="submit" name="formSubmit" value="Submit">
                 </form>
             </div>
