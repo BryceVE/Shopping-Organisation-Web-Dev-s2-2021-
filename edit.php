@@ -120,11 +120,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 //command to upload.
                 move_uploaded_file($fileTmpName, $fileDestination);
 
-
+                //sql to insert new profile picture info into database
                 $sql = "UPDATE user SET profilePic=:newFileName WHERE username='$userName'";
                 $stmt = $conn->prepare($sql);
                 $stmt->bindValue(':newFileName', $fileNameNew);
                 $stmt->execute();
+                //resets the session profile picture variable to the new pic
                 $_SESSION['profilePicture'] = $fileNameNew;
                 header("location:index.php");
             } else {
