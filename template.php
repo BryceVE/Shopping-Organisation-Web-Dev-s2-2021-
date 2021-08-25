@@ -36,25 +36,20 @@
                     <a class="nav-link" href="orderForm.php">Order Form</a>
                 </li>
 
+                <!--          Left side of Navbar          -->
+                <?php if (isset($_SESSION["username"])) : ?> <!--Authenticated user-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="invoice.php">Invoice</a>
+                    </li>
+                    <?php if ($_SESSION["level"] == "Administrator") : ?> <!--Administrator user-->
 
-            <!--          Left side of Navbar          -->
-            <!--Authenticated user-->
-            <?php if (isset($_SESSION["username"])) : ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="invoice.php">Invoice</a>
-                </li>
-                <!--Admin user-->
-                <?php if ($_SESSION["level"] == "Administrator") : ?>
-
+                    <?php endif; ?>
                 <?php endif; ?>
-            <?php endif; ?>
             </ul>
-
 
             <!--        Right side of Navbar        -->
             <div class="mx-auto order-0"></div>
-            <!--Unauthenticated user-->
-            <?php if (!isset($_SESSION["username"])) : ?>
+            <?php if (!isset($_SESSION["username"])) : ?>  <!--Unauthenticated user-->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Log in</a>
@@ -63,13 +58,11 @@
                         <a class="nav-link" href="registration.php">Register</a>
                     </li>
                 </ul>
-            <?php endif; ?>
-
-            <!--Authenticated user-->
-            <?php if (isset($_SESSION["username"])) : ?>
+            <?php else: ?>     <!--Authenticated user-->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <img src="images/profile_pictures/<?php echo $_SESSION['profilePicture'] ?>" style="width: 35px; margin-top: 40%">
+                        <img src="images/profile_pictures/<?php echo $_SESSION['profilePicture'] ?>"
+                             style="width: 35px; margin-top: 40%">
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="profile.php">Hello <?php echo $_SESSION["username"] ?><br> Profile</a>
@@ -79,6 +72,7 @@
                     </li>
                 </ul>
             <?php endif; ?>
+
             </ul>
         </div>
     </div>
