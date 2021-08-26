@@ -1,5 +1,6 @@
 <?php ob_start(); //sometimes header redirects dont work this fixes the problem
 
+//includes the header
 include "template.php";
 
 /**
@@ -12,8 +13,10 @@ include "template.php";
  * @var SQLite3 $conn
  */
 ?>
+<!--title-->
 <title>Cart</title>
 
+<!--formatting for the page-->
 <link rel="stylesheet" href="css/orderForm.css">
 
 
@@ -25,6 +28,7 @@ date_default_timezone_set("Australia/Sydney");
 $status = "";
 
 //function to remove item from shopping cart
+//if the user presses remove item button
 if (isset($_POST['action']) && $_POST['action'] == "remove") {
     //if shopping cart is not empty
     if (!empty($_SESSION["shopping_cart"])) {
@@ -32,11 +36,12 @@ if (isset($_POST['action']) && $_POST['action'] == "remove") {
         foreach ($_SESSION["shopping_cart"] as $key => $value) {
             //if the item is the same as the element $key
             if ($_POST["code"] == $key) {
-                //unset / delete that session variable out of the shopping cart array
+                //delete that session variable out of the shopping cart array
                 unset($_SESSION["shopping_cart"][$key]);
                 //output the status saying that the product was removed successfully
                 $status = "<div class='box' style='color:green;'>Product is removed from your cart!</div>";
             }
+            //if the item is not the same as $key
             //if the shopping cart is not empty
             if (empty($_SESSION["shopping_cart"]))
                 //unset / delete the shopping_cart variable from the session / memory
@@ -46,12 +51,12 @@ if (isset($_POST['action']) && $_POST['action'] == "remove") {
 }
 
 
-
-//This code runs when the quantity changes for a row
+//This code runs when the user changes the quantity for a product
+//if the user changes the quantity
 if (isset($_POST['action']) && $_POST['action'] == "change") {
-    //for each value / row in the shopping cart
+    //for each row in the shopping cart repeat the following code
     foreach ($_SESSION["shopping_cart"] as &$value) {
-        //checks if code is same as code that has been updated
+        //checks if product is same as product that has been updated
         if ($value['code'] === $_POST["code"]) {
             //grabs the quantity that has been set and stores it into the shopping cart variable
             $value['quantity'] = $_POST["quantity"];
@@ -73,6 +78,7 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
     //resets the total price if there is a product in the shopping cart
     $total_price = 0;
     ?>
+<!--    displays products in the cart in a table-->
     <table class="table">
         <tbody>
         <tr>
@@ -83,7 +89,7 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
             <td>ITEMS TOTAL</td>
         </tr>
         <?php
-        //for every product in variable shopping_cart create a row
+        //for every product in shopping_cart create a row and repeat following code
         foreach ($_SESSION["shopping_cart"] as $product) {
             ?>
             <tr>
@@ -95,8 +101,10 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
                     <!--displays product name-->
                     <?php echo $product["productName"]; ?>
                     <form method='post' action=''>
+<!--                            hidden product data-->
                             <input type='hidden' name='code' value="<?php echo $product["code"]; ?>"/>
                             <input type='hidden' name='action' value="remove"/>
+<!--                            remove item button-->
                             <button type='submit' class='remove'>Remove Item</button>
                         </form>
                 </td>
@@ -111,7 +119,7 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
                             <!--option 1-->
                             <option <?php if ($product["quantity"] == 1) echo "selected"; ?>
                                     value="1">1
-                                    <!--the option value is "1"-->
+                                    <!--the default option value is "1"-->
                             </option>
                             <!--option 2-->
                             <option <?php if ($product["quantity"] == 2) echo "selected"; ?>
@@ -155,10 +163,11 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
         </tbody>
     </table>
     <form method="post">
+<!--        order now button-->
         <input type="submit" name="orderProducts" value="Order Now"/>
     </form>
     <?php
-} //ends the if something in shopping cart statement
+} //ends the if in shopping cart statement
 
 
 //      Writing the order to the database      //
@@ -189,6 +198,7 @@ if(isset($_POST['orderProducts'])) {
 
         //login here button takes the user to home page
         echo '<button id="Home_page" class="btn btn-primary" style="margin-left: 45%">Login Here</button>';?>
+<!--        redirects the user to the home page id the button is pressed-->
     <script type="text/javascript">
         document.getElementById("Home_page").onclick = function () {
             location.href = "index.php";
@@ -197,5 +207,6 @@ if(isset($_POST['orderProducts'])) {
     <?php
     }
 }
+
 ob_end_flush(); //sometimes header redirects dont work this fixes the problem
 ?>
