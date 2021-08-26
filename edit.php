@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //puts picture info into variable
     $file = $_FILES['file'];
 
-//separates picture info
+//separates picture info for ease of access to use later
     $fileName = $_FILES['file']['name'];
     $fileTmpName = $_FILES['file']['tmp_name'];
     $fileSize = $_FILES['file']['size'];
