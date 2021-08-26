@@ -1,6 +1,10 @@
-<?php require_once 'config.php'; ?>
-<?php include 'login.php'; ?>
+<?php
+//includes the database
+require_once 'config.php';
+//inlcludes the login info
+include 'login.php'; ?>
 
+<!--  Formatting  Navbar  -->
     <html>
     <head>
         <!-- Required meta tags -->
@@ -24,7 +28,7 @@
         </button>
         <div class="collapse navbar-collapse w-100 order-3 dual-collapse2" id="navbarNav">
 
-            <!--Default navbar items-->
+            <!--  Default navbar items  -->
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
@@ -82,17 +86,25 @@
 <script src="js/bootstrap.bundle.js"></script>
 
 <?php
+//function to sanitise data to make it safe to go into database
 function sanitise_data($data)
 {
+    //trims the data to get rid of blank spaces
     $data = trim($data);
     $data = stripslashes($data);
+    //makes the data raw so it doesn't run SQL into the database
     $data = htmlspecialchars($data);
+    //gives the data back
     return $data;
 }
 
+
+//footer (not used currently)
 function outputFooter()
 {
+    //sets the correct time zone
     date_default_timezone_set('Australia/Canberra');
+    //displays the time and date of the time zone
     echo "<footer>This page was last modified: " . date("F d Y H:i:s.", filemtime("index.php")) . "</footer>";
 }
 
