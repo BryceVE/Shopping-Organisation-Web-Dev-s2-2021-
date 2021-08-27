@@ -56,9 +56,9 @@ if (isset($_SESSION["username"])) {
         <div class="row">
             <div class="col-md-6">
 <!--                display the users information-->
-                <h3>Username : <?php echo $userName; ?></h3>
-                <p> Name : <?php echo $name ?> </p>
-                <p> Access Level : <?php echo $accessLevel ?> </p>
+                <h3>Username: <?php echo $userName; ?></h3>
+                <p> Name: <?php echo $name ?> </p>
+                <p> Access Level: <?php echo $accessLevel ?> </p>
                 <p>Profile Picture:</p>
                 <?php
                 //displays the users profile picture

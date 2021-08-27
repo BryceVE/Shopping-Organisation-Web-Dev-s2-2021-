@@ -42,16 +42,16 @@ if (isset($_SESSION["username"])) {
     <div class="row">
         <div class="col-md-6">
 <!--            username-->
-            <h3>Username : <?php echo $userName; ?></h3>
+            <h3>Username: <?php echo $userName; ?></h3>
 <!--            profile picture-->
             <p>Profile Picture:</p>
             <?php echo "<img src='images/profile_pictures/" . $profilePic . "' width='100' height='100'>" ?>
         </div>
         <div class="col-md-6">
 <!--            user name-->
-            <p> Name : <?php echo $name ?> </p>
+            <p> Name: <?php echo $name ?> </p>
 <!--            users' access level-->
-            <p> Access Level : <?php echo $accessLevel ?> </p>
+            <p> Access Level: <?php echo $accessLevel ?> </p>
 <!--            edit profile button-->
             <p><a href="edit.php" title="Edit">Edit Profile</a></p>
         </div>
