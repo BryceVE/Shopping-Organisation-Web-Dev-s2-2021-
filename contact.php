@@ -64,6 +64,7 @@ if (isset($_POST['formSubmit'])) {
         //sets the variables to what the user submitted
         $userEmail = sanitise_data($_POST["contactEmail"]);
         $userMessage = sanitise_data(($_POST["contactMessage"]));
+        $userID = $_SESSION["user_id"];
 
         //if there are error messages (if the error message variable is not empty)
         if (!empty($errorMsg)) {
@@ -81,7 +82,7 @@ if (isset($_POST['formSubmit'])) {
             $sqlStmt = $conn->prepare("INSERT INTO messaging (sender, recipient, message, dateSubmitted) VALUES (:sender, :recipient, :message, :dateSubmitted)");
             //binds the values of the message details to the SQL; safer method of uploading
             $sqlStmt->bindValue(":sender", $userEmail);
-            $sqlStmt->bindValue(":recipient", 1);
+            $sqlStmt->bindValue(":recipient", $userID);
             $sqlStmt->bindValue(":message", $userMessage);
             $sqlStmt->bindValue(":dateSubmitted", $submittedDateTime);
             //executes the SQL
