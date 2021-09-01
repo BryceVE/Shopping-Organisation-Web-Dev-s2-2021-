@@ -8,11 +8,11 @@ include "template.php";
  * @var SQLite3 $conn
  */
 ?>
-<!--title-->
-<title>User Profile</title>
+    <!--title-->
+    <title>User Profile</title>
 
-<!--heading-->
-<h1 class='text-primary'>Your Profile</h1>
+    <!--heading-->
+    <h1 class='text-primary'>Your Profile</h1>
 
 <?php
 
@@ -37,26 +37,26 @@ if (isset($_SESSION["username"])) {
 }
 ?>
 
-<!--Displays the user information-->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6">
-<!--            username-->
-            <h3>Username: <?php echo $userName; ?></h3>
-<!--            profile picture-->
-            <p>Profile Picture:</p>
-            <?php echo "<img src='images/profile_pictures/" . $profilePic . "' width='100' height='100'>" ?>
-        </div>
-        <div class="col-md-6">
-<!--            user name-->
-            <p> Name: <?php echo $name ?> </p>
-<!--            users' access level-->
-            <p> Access Level: <?php echo $accessLevel ?> </p>
-<!--            edit profile button-->
-            <p><a href="edit.php" title="Edit">Edit Profile</a></p>
+    <!--Displays the user information-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <!--            username-->
+                <h3>Username: <?php echo $userName; ?></h3>
+                <!--            profile picture-->
+                <p>Profile Picture:</p>
+                <?php echo "<img src='images/profile_pictures/" . $profilePic . "' width='100' height='100'>" ?>
+            </div>
+            <div class="col-md-6">
+                <!--            user name-->
+                <p> Name: <?php echo $name ?> </p>
+                <!--            users' access level-->
+                <p> Access Level: <?php echo $accessLevel ?> </p>
+                <!--            edit profile button-->
+                <p><a href="edit.php" title="Edit">Edit Profile</a></p>
+            </div>
         </div>
     </div>
-</div>
 
 
 <?php
@@ -67,14 +67,31 @@ $numberOfRowsReturned = $conn->querySingle("SELECT count(*) FROM messaging WHERE
 if ($numberOfRowsReturned > 0) {
     //selects all rows where the recipient columns are the same the user id.
     $messages = $conn->query("SELECT * FROM messaging WHERE recipient='$userId'");
-?>
-<div class="container-fluid">
+    ?>
+    <div class="container-fluid">
     <div class="row">
+<!--        display headings-->
         <div class="col-md-4 text-success"><h2>From</h2></div>
         <div class="col-md-4 text-success"><h2>Message</h2></div>
         <div class="col-md-4 text-success"><h2>Date Sent</h2></div>
     </div>
-</div>
-<?php
+
+    <?php
+//    loops following code for each message the user logged in has submitted
+    while ($individual_message = $messages->fetchArray()) {
+        //extracts the parts of the message into variables to use later
+        $sender = $individual_message[1];
+        $message = $individual_message[3];
+        $dateSubmitted = $individual_message[4];
+        ?>
+        <div class="row">
+<!--        displays the individual parts of each message-->
+        <div class="col-md-4"><?php echo $sender; ?></div>
+        <div class="col-md-4"><?php echo $message; ?></div>
+        <div class="col-md-4"><?php echo $dateSubmitted; ?></div>
+        </div>
+
+        <?php
+    }
 }
 ?>
