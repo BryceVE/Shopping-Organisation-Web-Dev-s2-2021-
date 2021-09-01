@@ -117,5 +117,46 @@ if (empty($_GET["order"])) { // Showing the list of open order (case 1)
     echo"<div class='row'><div class='col'></div><div class='col'></div><div class='col display-4'>Total : $". $total ."</div></div>";
     //displays when the order was submitted
     echo"<div class='row'><div class='col'></div><div class='col'></div><div class='col'>". $orderDate ."</div></div>";
+
+    //if the user is an admin
+    if ($_SESSION["level"] == "Administrator") {
+
+        //if the status is not empty
+        if (!empty($_GET["status"])) {
+            //if the status is closed
+            if ($_GET["status"]=="CLOSED") {
+                //executes SQL in orderDetails table in database
+                $conn->exec("UPDATE orderDetails SET status='CLOSED' WHERE orderCode='$order_id'");
+                //sets the message
+                $orderMessage = "Order #:".$order_id." has been dispatched";
+                //selects userID from orderDetails WHERE orderCode is the same as the order id
+                $customer_id = $conn->querySingle("SELECT userID FROM orderDetails WHERE orderCode = '$order_id'");
+                //inserts message into messaging table in database
+                $conn->exec("INSERT INTO messaging (sender, recipient, message, dateSubmitted) VALUES ('1', $customer_id,'$orderMessage', '$orderDate')");
+            } else {
+                //executes SQL in orderDetails table in database
+                $conn->exec("UPDATE orderDetails SET status='OPEN' WHERE orderCode='$order_id'");
+                //sets the message
+                $orderMessage = "Order #:".$order_id." has been re-opened";
+                //selects userID from orderDetails WHERE orderCode is the same as the order id
+                $customer_id = $conn->querySingle("SELECT userID FROM orderDetails WHERE orderCode = '$order_id'");
+                //inserts message into messaging table in database
+                $conn->exec("INSERT INTO messaging (sender, recipient, message, dateSubmitted) VALUES ('1', $customer_id,'$orderMessage', '$orderDate')");
+            }
+        }
+
+        //if the status of an order is open
+        if ($status=="OPEN") {
+            //displays 'OPEN'
+            echo "STATUS: OPEN";
+            //displays button to close the order
+            echo "<p><a href='invoice.php?order=".$order_id."&status=CLOSED'>Click here to close</a></p>";
+        } else {
+            //displays 'CLOSED'
+            echo "STATUS: CLOSED";
+            //displays button to close the order
+            echo "<p><a href='invoice.php?order=".$order_id."&status=OPEN'>Click here to open</a></p>";
+        }
+    }
 }
 ?>
