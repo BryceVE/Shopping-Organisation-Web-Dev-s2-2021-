@@ -83,10 +83,22 @@ if ($numberOfRowsReturned > 0) {
         $sender = $individual_message[1];
         $message = $individual_message[3];
         $dateSubmitted = $individual_message[4];
+
+        //selects the users username and puts it into a variable
+        $senderName = $conn->querySingle("SELECT username FROM user WHERE user_id='$sender'");
         ?>
         <div class="row">
 <!--        displays the individual parts of each message-->
-        <div class="col-md-4"><?php echo $sender; ?></div>
+        <div class="col-md-4">
+        <?php
+//        if sender name variable is empty
+        if (!$senderName) {
+//            output the sender
+            echo $sender;
+        } else {
+//            else output the sender name
+            echo $senderName;
+        } ?></div>
         <div class="col-md-4"><?php echo $message; ?></div>
         <div class="col-md-4"><?php echo $dateSubmitted; ?></div>
         </div>
