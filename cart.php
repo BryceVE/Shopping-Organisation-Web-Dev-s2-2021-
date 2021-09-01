@@ -188,9 +188,13 @@ if(isset($_POST['orderProducts'])) {
             //write to the orderDetails table in database.
             $conn->exec("INSERT INTO orderDetails (orderCode,userID, productCode, orderDate, quantity) VALUES('$orderNumber','$customerID','$productCode','$orderDate', '$quantity')");
         }
-    //clears the shopping cart
-    $_SESSION["shopping_cart"] = [];
-    header("location:invoice.php");
+        //clears the shopping cart
+        $_SESSION["shopping_cart"] = [];
+
+        $orderMessage = "Order #:".$orderNumber." has been submitted";
+        $conn->exec("INSERT INTO messaging (sender, recipient, message, dateSubmitted) VALUES ('$customerID',$customerID, '$orderMessage', '$orderDate')");
+
+        header("location:invoice.php");
 
     } else { //if user is not logged in
         //login error popup message
@@ -208,5 +212,5 @@ if(isset($_POST['orderProducts'])) {
     }
 }
 
-ob_end_flush(); //sometimes header redirects dont work this fixes the problem
+ob_end_flush(); //sometimes header redirects don't work this fixes the problem
 ?>
