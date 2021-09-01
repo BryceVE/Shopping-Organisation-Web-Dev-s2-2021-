@@ -40,33 +40,47 @@ include "template.php";
 
 //if the submit button is pressed
 if (isset($_POST['formSubmit'])) {
+    //creates empty variable to be used later
     $errorMsg = "";
 
+    //if the email input is empty
     if (empty($_POST['contactEmail'])) {
+        //puts an error message into the $errorMsg variable as a list to be displayed
         $errorMsg .= "<li class='alert-danger'>You didn't enter your email!</li>";
     }
 
+    //if the message input is empty
     if (empty($_POST['contactMessage'])) {
+        //puts an error message into the $errorMsg variable as a list to be displayed
         $errorMsg .= "<li class='alert-danger'>You didn't enter your message!</li>";
     }
 
+    //sets the variables to what the user submitted
     $userEmail = sanitise_data($_POST["contactEmail"]);
     $userMessage = sanitise_data(($_POST["contactMessage"]));
 
+    //if there are error messages (if the error message variable is not empty)
     if (!empty($errorMsg)) {
-        // Output the error/s
+        //output the error/s
         echo("<p>There was an error:</p>");
+        //displays the errors that were saved earlier (49, 55)
         echo("<ul>" . $errorMsg . "</ul>");
-    } else {
+    } else { //else if the $errorMsg variable is empty
+        //sets the default time zone to Sydney
         date_default_timezone_set('Australia/Sydney');
+        //sets the date and time formatting wanted
         $submittedDateTime = date("Y-m-d h:i:sa");
 
+        //prepares SQL to put the message into the database
         $sqlStmt = $conn->prepare("INSERT INTO messaging (sender, recipient, message, dateSubmitted) VALUES (:sender, :recipient, :message, :dateSubmitted)");
+        //binds the values of the message details to the SQL; safer method of uploading
         $sqlStmt->bindValue(":sender", $userEmail);
         $sqlStmt->bindValue(":recipient", 1);
         $sqlStmt->bindValue(":message", $userMessage);
         $sqlStmt->bindValue(":dateSubmitted", $submittedDateTime);
+        //executes the SQL
         $sqlStmt->execute();
+        //displays a success message
         echo "<div class='alert-primary'>Message Submitted</div>";
     }
 }
