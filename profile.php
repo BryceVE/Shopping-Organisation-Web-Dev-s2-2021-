@@ -57,3 +57,24 @@ if (isset($_SESSION["username"])) {
         </div>
     </div>
 </div>
+
+
+<?php
+//queries the database to get how many rows there are where the recipient columns are the same the user id.
+$numberOfRowsReturned = $conn->querySingle("SELECT count(*) FROM messaging WHERE recipient='$userId'");
+
+//if the amount of rows is more than 0
+if ($numberOfRowsReturned > 0) {
+    //selects all rows where the recipient columns are the same the user id.
+    $messages = $conn->query("SELECT * FROM messaging WHERE recipient='$userId'");
+?>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 text-success"><h2>From</h2></div>
+        <div class="col-md-4 text-success"><h2>Message</h2></div>
+        <div class="col-md-4 text-success"><h2>Date Sent</h2></div>
+    </div>
+</div>
+<?php
+}
+?>
