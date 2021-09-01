@@ -129,7 +129,7 @@ if (empty($_GET["order"])) { // Showing the list of open order (case 1)
                 $conn->exec("UPDATE orderDetails SET status='CLOSED' WHERE orderCode='$order_id'");
                 //sets the message
                 $orderMessage = "Order #:".$order_id." has been dispatched";
-                //selects userID from orderDetails WHERE orderCode is the same as the order id
+                //selects userID from orderDetails WHERE orderCode is the same as the order ID
                 $customer_id = $conn->querySingle("SELECT userID FROM orderDetails WHERE orderCode = '$order_id'");
                 //inserts message into messaging table in database
                 $conn->exec("INSERT INTO messaging (sender, recipient, message, dateSubmitted) VALUES ('1', $customer_id,'$orderMessage', '$orderDate')");
