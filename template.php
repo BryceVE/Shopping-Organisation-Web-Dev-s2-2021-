@@ -46,7 +46,9 @@ include 'login.php'; ?>
                         <a class="nav-link" href="invoice.php">Invoice</a>
                     </li>
                     <?php if ($_SESSION["level"] == "Administrator") : ?> <!--Administrator user-->
-
+                    <li>
+                        <a class="nav-link" href="search-user.php">Search User</a>
+                    </li>
                     <?php endif; ?>
                 <?php endif; ?>
             </ul>
