@@ -60,18 +60,18 @@ include "template.php"; ?>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
-                            <!--                        searched users' username-->
+                            <!--searched users' username-->
                             <h3>Username: <?php echo $username; ?></h3>
-                            <!--                        searched users' profile picture-->
+                            <!--searched users' profile picture-->
                             <p>Profile Picture:</p>
                             <?php echo "<img src='images/profile_pictures/" . $profilePic . "'height='150'>" ?>
                         </div>
                         <div class="col-md-6">
-                            <!--                        searched users' name-->
+                            <!--searched users' name-->
                             <p> Name: <?php echo $name ?> </p>
-                            <!--                        searched users' access level-->
+                            <!--searched users' access level-->
                             <p> Access Level: <?php echo $accessLevel ?> </p>
-                            <!--                        edit searched users' details-->
+                            <!--edit searched users' details-->
                             <p><a href="edit.php" title="Edit">Edit Profile</a></p>
                         </div>
                     </div>
