@@ -47,6 +47,7 @@ include "template.php"; ?>
             //if there are more than 0 rows (if there is a user with the username searched)
             if ($userNumberOfRows > 0) {
                 //puts the searched users' information into variables
+                $user_id = $results[1];
                 //searched users' username
                 $username = $results[2];
                 //searches users' name
@@ -72,7 +73,8 @@ include "template.php"; ?>
                             <!--searched users' access level-->
                             <p> Access Level: <?php echo $accessLevel ?> </p>
                             <!--edit searched users' details-->
-                            <p><a href="edit.php" title="Edit">Edit Profile</a></p>
+                            <p><a href="edit.php?user_id=<?php echo $user_id ?>" title="Edit">Edit Profile</a></p>
+<!--                            <p><a href="remove-user.php?user_id="></p>-->
                         </div>
                     </div>
                 </div>
