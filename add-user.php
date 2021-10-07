@@ -9,6 +9,13 @@ ob_start(); //sometimes header redirects dont work this fixes the problem
 <!--heading-->
 <h1 class='text-primary'>Create New User</h1>
 
+
+<?php
+//this gets all the different access levels that are currently in user table in database (should only be User or Administrator)
+$query = $conn->query("SELECT DISTINCT accessLevel FROM user");
+?>
+
+
 <!-- A javascript function to preview the new profile picture the user has chosen -->
 <script type="text/javascript">
     function preview_image(event){
@@ -35,8 +42,17 @@ ob_start(); //sometimes header redirects dont work this fixes the problem
                 <p>User Name<input type="text" name="username" class="form-control" required="required"></p>
                 <!--                passoword input-->
                 <p>Password<input type="password" name="password" class="form-control" required="required"></p>
-                <!--                access level input-->
-                <p>Access Level<input type="text" name="accessLevel" class="form-control" required="required"></p>
+                <!--                access level dropdown input-->
+                <p>Access Level
+                    <select name="accessLevel">
+                        <?php
+                        //while the query on line 15 is selecting this puts the separate information into it gets into options for the html dropdown select.
+                        while ($row = $query->fetchArray()) {
+                            echo '<option>'.$row[0].'</option>';
+                        }
+                        ?>
+                    </select>
+                </p>
 
             </div>
             <div class="col-md-6">
