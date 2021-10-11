@@ -16,7 +16,7 @@ include "template.php"; ?>
 <!--displays info-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
 
 <!--            display login info-->
             Default user: user, user <br>
@@ -53,7 +53,14 @@ include "template.php"; ?>
                     </div>
                     <br>
                 </form>
-            <?php endif; ?>
+            <?php
+            else:
+                echo "<div style='font-size: large'>Blocks<sup>TM</sup> is an Australian company that sells micro sized lego sets, the smallest block being just 4x4mm!</div><br>";
+                echo "<div style='font-size: medium'>Our products are delivered all over Australia with free delivery on orders over $75!<br>Delivery Australia-wide will cost $9 if the order is under $75.</div>";
+
+
+
+            endif; ?>
         </div>
     </div>
 </div>
