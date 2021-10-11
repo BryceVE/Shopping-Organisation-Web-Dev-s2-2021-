@@ -1,4 +1,6 @@
 <?php
+ob_start(); //sometimes header redirects dont work this fixes the problem
+
 //includes the Navbar
 include "template.php"; ?>
 <!--title-->
@@ -136,6 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+ob_end_flush(); //sometimes header redirects don't work this fixes the problem
 ?>
 </body>
 </html>
