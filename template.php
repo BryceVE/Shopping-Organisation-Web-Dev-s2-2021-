@@ -40,18 +40,24 @@ include 'login.php'; ?>
                     <a class="nav-link" href="orderForm.php">Order Form</a>
                 </li>
 
+
                 <!--          Left side of Navbar          -->
                 <?php if (isset($_SESSION["username"])) : ?> <!--Authenticated user-->
                     <li class="nav-item">
                         <a class="nav-link" href="invoice.php">Invoice</a>
                     </li>
                     <?php if ($_SESSION["level"] == "Administrator") : ?> <!--Administrator user-->
-                    <li>
-                        <a class="nav-link" href="search-user.php">Search User</a>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administrator Functions</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="search-user.php">Search User</a>
+                        <a class="dropdown-item" href="add-user.php">Add User</a>
+                        <a class="dropdown-item" href="product-add.php">Add Product</a>
+                    </ul>
                     <?php endif; ?>
                 <?php endif; ?>
             </ul>
+
 
             <!--        Right side of Navbar        -->
             <div class="mx-auto order-0"></div>
@@ -83,6 +89,7 @@ include 'login.php'; ?>
         </div>
     </div>
 </nav>
+
 
 
 <script src="js/bootstrap.bundle.js"></script>
