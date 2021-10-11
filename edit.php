@@ -5,6 +5,7 @@
  *
  * @var SQLite3 $conn
  */
+ob_start(); //sometimes header redirects dont work this fixes the problem
 ?>
     <!--title-->
     <title>Edit your Profile</title>
@@ -157,5 +158,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-
+ob_end_flush(); //sometimes header redirects don't work this fixes the problem
 ?>
