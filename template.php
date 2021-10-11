@@ -47,11 +47,13 @@ include 'login.php'; ?>
                         <a class="nav-link" href="invoice.php">Invoice</a>
                     </li>
                     <?php if ($_SESSION["level"] == "Administrator") : ?> <!--Administrator user-->
+                <!-- Dropdown menu to house the administrator only pages / functions-->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administrator Functions</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="search-user.php">Search User</a>
-                        <a class="dropdown-item" href="add-user.php">Add User</a>
+                        <a class="dropdown-item" href="user-search.php">Search User</a>
+                        <a class="dropdown-item" href="user-add.php">Add User</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="product-add.php">Add Product</a>
                     </ul>
                     <?php endif; ?>
