@@ -55,6 +55,7 @@ include 'login.php'; ?>
                         <a class="dropdown-item" href="user-add.php">Add User</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="product-add.php">Add Product</a>
+                        <a class="dropdown-item" href="product-list.php">Product List</a>
                     </ul>
                     <?php endif; ?>
                 <?php endif; ?>
