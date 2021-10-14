@@ -23,7 +23,7 @@ if (isset($_GET["prodCode"])) {
     //executed the query
     $sqlstmt->execute();
     //display a success message
-    echo "<p>Product ".$productToDelete." has been deleted from the database";
+    echo "<p>Product ".$productToDelete." has been removed from the database";
 } else {
     //error message
     echo "No Product to Delete";
