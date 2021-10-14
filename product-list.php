@@ -11,7 +11,7 @@ include "template.php"; ?>
 
 <?php
 //grabs all the product names and their images from the products table
-$productList = $conn->query("SELECT productName, image FROM products");
+$productList = $conn->query("SELECT productName, image, code FROM products");
 ?>
 
 <!--Display the products and their images nicely-->
@@ -38,7 +38,7 @@ $productList = $conn->query("SELECT productName, image FROM products");
             </div>
             <div class="col-md-2">
                 <!--delete button-->
-                Delete
+                <a href="product-remove.php?prodCode=<?php echo $productData[2];?>">Delete</a>
             </div>
         </div>
         <?php
