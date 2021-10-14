@@ -23,23 +23,26 @@ $productList = $conn->query("SELECT productName, image FROM products");
         <div class="row">
             <div class="col-md-2">
                 <?php
+                //displays the products image
                 echo '<img src="images/product_pictures/'.$productData[1].'" height="50">';
                 ?>
             </div>
             <div class="col-md-4">
-                <?php echo $productData[0]; ?>
+                <?php
+                //displays the products name
+                echo $productData[0]; ?>
             </div>
             <div class="col-md-2">
-                <!--            edit button-->
+                <!--edit button-->
                 Edit
             </div>
             <div class="col-md-2">
-                <!--            delete button-->
+                <!--delete button-->
                 Delete
             </div>
         </div>
         <?php
-    }
+    } //end of while loop on line 21
     ?>
 
 
