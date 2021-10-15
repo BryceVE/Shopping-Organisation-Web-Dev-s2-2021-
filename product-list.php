@@ -34,7 +34,7 @@ $productList = $conn->query("SELECT productName, image, code FROM products");
             </div>
             <div class="col-md-2">
                 <!--edit button-->
-                Edit
+                <a href="product-edit.php?prodCode=<?php echo $productData[2];?>">Edit</a>
             </div>
             <div class="col-md-2">
                 <!--delete button-->
