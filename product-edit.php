@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newPrice = sanitise_data($_POST['prodPrice']);
     $newCode = sanitise_data($_POST['prodCode']);
 
-    //if there is a new product picture selected
+    //if there is a new product picture selected (continues on line 159)
     if (!empty($_FILES['prodImage_file']['name'])){
 
         // Updating Profile picture
