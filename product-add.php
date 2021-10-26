@@ -80,6 +80,8 @@ $query = $conn->query("SELECT DISTINCT category FROM products");
 </form>
 
 <?php
+
+
 //if the user submits the register user form
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //puts the product info into variables to be used later and sanitises the data for safety

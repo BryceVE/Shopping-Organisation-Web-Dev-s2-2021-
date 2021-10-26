@@ -19,6 +19,7 @@ include "template.php";
 <h1 class="text-primary">Order Form</h1>
 
 <?php
+//if the user is logged in
 if (isset($_SESSION["username"])) {
 //empty variable to get rid of error message
     $status = "";
@@ -116,6 +117,7 @@ if (isset($_SESSION["username"])) {
     </div>";
     }
 } else {
+    //if the user is not logged in send them to the home page
     header("location:index.php");
 }
 ?>
