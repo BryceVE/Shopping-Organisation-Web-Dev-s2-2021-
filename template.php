@@ -12,7 +12,7 @@ include 'login.php';
 
 ?>
 
-<!--  Formatting  Navbar  -->
+    <!--  Formatting  Navbar  -->
     <html>
     <head>
         <!-- Required meta tags -->
@@ -44,20 +44,21 @@ include 'login.php';
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="orderForm.php">Order Form</a>
-                </li>
 
 
                 <!--          Left side of Navbar          -->
                 <?php if (isset($_SESSION["username"])) : ?> <!--Authenticated user-->
-                    <li class="nav-item">
-                        <a class="nav-link" href="invoice.php">Invoice</a>
-                    </li>
-                    <?php if ($_SESSION["level"] == "Administrator") : ?> <!--Administrator user-->
+                <li class="nav-item">
+                    <a class="nav-link" href="orderForm.php">Order Form</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="invoice.php">Invoice</a>
+                </li>
+                <?php if ($_SESSION["level"] == "Administrator") : ?> <!--Administrator user-->
                 <!-- Dropdown menu to house the administrator only pages / functions-->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administrator Functions</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">Administrator Functions</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="user-search.php">Search User</a>
                         <a class="dropdown-item" href="user-add.php">Add User</a>
@@ -66,7 +67,7 @@ include 'login.php';
                         <a class="dropdown-item" href="product-list.php">Product List</a>
                     </ul>
                     <?php endif; ?>
-                <?php endif; ?>
+                    <?php endif; ?>
             </ul>
 
 
@@ -100,7 +101,6 @@ include 'login.php';
         </div>
     </div>
 </nav>
-
 
 
 <script src="js/bootstrap.bundle.js"></script>
