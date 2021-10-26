@@ -8,6 +8,20 @@ include "template.php";
  * Also shows buttons to edit or delete each product
  */
 
+
+//if the user is logged in
+if (isset($_SESSION["username"])) {
+    //if the user is an admin
+    if ($_SESSION["level"] == "Administrator") {
+    } else {
+        //if the user is not an admin send them to the home page
+        header("location:index.php");
+    }
+} else {
+    //if the user is not logged in send them to the home page
+    header("location:index.php");
+}
+
 ?>
 <!--title-->
 <title>Products List</title>
@@ -32,7 +46,7 @@ $productList = $conn->query("SELECT productName, image, code FROM products");
             <div class="col-md-2">
                 <?php
                 //displays the products image
-                echo '<img src="images/product_pictures/'.$productData[1].'" height="50">';
+                echo '<img src="images/product_pictures/' . $productData[1] . '" height="50">';
                 ?>
             </div>
             <div class="col-md-4">
@@ -42,11 +56,11 @@ $productList = $conn->query("SELECT productName, image, code FROM products");
             </div>
             <div class="col-md-2">
                 <!--edit button-->
-                <a href="product-edit.php?prodCode=<?php echo $productData[2];?>">Edit</a>
+                <a href="product-edit.php?prodCode=<?php echo $productData[2]; ?>">Edit</a>
             </div>
             <div class="col-md-2">
                 <!--delete button-->
-                <a href="product-remove.php?prodCode=<?php echo $productData[2];?>">Delete</a>
+                <a href="product-remove.php?prodCode=<?php echo $productData[2]; ?>">Delete</a>
             </div>
         </div>
         <?php
