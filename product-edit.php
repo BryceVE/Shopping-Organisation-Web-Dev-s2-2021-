@@ -2,7 +2,7 @@
 //includes the navbar
 include "template.php";
 /**
- *  This is to update the details for products in the database
+ * This is for admins to update the details for products in the database
  *
  * @var SQLite3 $conn
  */

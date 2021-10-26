@@ -6,6 +6,8 @@ include "template.php"; ?>
 <?php
 /**
  * Invoicing page
+ * This page shows the invoice for all orders made by that user logged in
+ *
  * This page is used for different cases:
  * 1) Users to view their "open" orders as a list.
  * 2) Users to view invoices from individual orders (using the order variable in url)

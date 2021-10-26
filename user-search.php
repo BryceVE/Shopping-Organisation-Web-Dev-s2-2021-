@@ -1,6 +1,14 @@
 <?php
 //includes the nav bar
-include "template.php"; ?>
+include "template.php";
+
+/**
+ * This is for admins to search for any user in the database
+ *
+ * It displays the details of the user searched and options to edit or delete it
+ */
+
+?>
 
 <!--title-->
 <title>Search Users</title>

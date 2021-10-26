@@ -1,6 +1,11 @@
 <?php
 //includes the Navbar
 include "template.php";
+
+/**
+ * This page allows admins to add a product to the database that isnt already there
+ */
+
 ob_start(); //sometimes header redirects dont work this fixes the problem
 ?>
 <!--title-->

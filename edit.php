@@ -1,7 +1,7 @@
 <?php include "template.php";
 /**
- *  This is the user's profile page.
- * It shows the Users details including picture, and a link to edit the details.
+ * This is the page to edit your profile.
+ * It shows the Users details, and has inputs for the user to edit certain pats of their profile.
  *
  * @var SQLite3 $conn
  */

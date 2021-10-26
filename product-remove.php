@@ -1,6 +1,6 @@
 <?php include "template.php";
 /**
- *  This will remove a given product
+ * This is for admins to remove a given product from the database
  *
  * @var SQLite3 $conn
  */

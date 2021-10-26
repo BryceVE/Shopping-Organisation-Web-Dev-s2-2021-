@@ -1,6 +1,14 @@
 <?php
 //includes the Navbar
-include "template.php"; ?>
+include "template.php";
+
+/**
+ * This displays a list of all products currently in the database
+ *
+ * Also shows buttons to edit or delete each product
+ */
+
+?>
 <!--title-->
 <title>Products List</title>
 

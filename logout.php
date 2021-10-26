@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+/**
+ * This page is not accessible to any user
+ *
+ * This page unsets/resets all the information the user has in a session
+ */
+
 //unset($_SESSION["user_id"]);
 //unset($_SESSION["name"]);
 //unset($_SESSION["username"]);

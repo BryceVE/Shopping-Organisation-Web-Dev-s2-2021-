@@ -2,8 +2,7 @@
 //includes the nav bar
 include "template.php";
 /**
- * This is the remove user page.
- * It shows the Users details including picture, and a link to edit the details.
+ * This page allows admins to remove a user from the database
  *
  * @var SQLite3 $conn
  */

@@ -2,6 +2,12 @@
 //starts the user's session when they open the page
 session_start();
 
+/**
+ * This page is not accessible to any user
+ *
+ * This page setts up the database when a user first opens any page
+ */
+
 //connects to database
 $conn = new SQLite3("db/Blocks") or die ("unable to open database");
 

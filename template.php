@@ -2,7 +2,15 @@
 //includes the database
 require_once 'config.php';
 //inlcludes the login info
-include 'login.php'; ?>
+include 'login.php';
+
+/**
+ * This page is not accessible to any user
+ *
+ * This page displays the nav bar at the top of every page on the website
+ */
+
+?>
 
 <!--  Formatting  Navbar  -->
     <html>

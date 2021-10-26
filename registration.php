@@ -2,7 +2,13 @@
 ob_start(); //sometimes header redirects dont work this fixes the problem
 
 //includes the Navbar
-include "template.php"; ?>
+include "template.php";
+
+/**
+ * This page is for users to register a new account
+ */
+
+?>
 <!--title-->
 <title>User Registration</title>
 

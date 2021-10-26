@@ -1,6 +1,12 @@
 <?php
 //includes the Navbar
-include "template.php"; ?>
+include "template.php";
+
+/**
+ * Index page is the home page of the website
+ * The use can log in from this page if not already logged in
+ */
+?>
 <!--title-->
 <title>Blocks Home</title>
 

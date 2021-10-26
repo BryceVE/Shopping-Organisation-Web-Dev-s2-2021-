@@ -2,6 +2,12 @@
 //includes the Navbar
 include "template.php";
 ob_start(); //sometimes header redirects dont work this fixes the problem
+
+/**
+ * This is for admins to add a new user into the database
+ */
+
+
 ?>
 <!--title-->
 <title>Create New User</title>

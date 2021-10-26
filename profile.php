@@ -2,7 +2,7 @@
 //includes the Navbar
 include "template.php";
 /**
- *  This is the user's profile page.
+ * This is the user's profile page.
  * It shows the Users details including picture, and a link to edit the details.
  *
  * @var SQLite3 $conn

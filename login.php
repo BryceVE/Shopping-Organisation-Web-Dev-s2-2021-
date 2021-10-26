@@ -2,6 +2,13 @@
 //includes the config page to connect to the database
 require_once 'config.php';
 
+/**
+ * This page is displayed on the index/home page if a user is not logged in
+ *
+ * It shows an input for a users' username and password, so they can log into an available account
+ * Displays a register button in case the user doesn't have an account yet
+ */
+
 //if the user presses the login button on home page
 if (isset($_POST['login'])) {
     //gets the username and password and sanitises them as well

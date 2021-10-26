@@ -4,8 +4,10 @@
 //includes the Navbar
 include "template.php";
 
-//this gets rid of conn variable having error line under it
 /**
+ * This page displays the products and allows users to put any items they want into their shopping cart
+ *
+ * this gets rid of conn variable having error line under it
  * @var SQLite3 $conn
  */
 
