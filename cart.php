@@ -12,6 +12,15 @@ include "template.php";
  * "Defines" the conn variable, removing the undefined variable errors.
  * @var SQLite3 $conn
  */
+
+//if the user is logged in
+if (isset($_SESSION["username"])) {
+    } else {
+    //if the user is not logged in send them to the home page
+    header("location:index.php");
+}
+
+
 ?>
 <!--title-->
 <title>Cart</title>
