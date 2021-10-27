@@ -95,7 +95,8 @@ if (isset($_SESSION["username"])) {
                             <p> Access Level: <?php echo $accessLevel ?> </p>
                             <!--edit searched users' details-->
                             <p><a href="edit.php?user_id=<?php echo $user_id ?>" title="Edit">Edit Profile</a></p>
-<!--                            <p><a href="remove-user.php?user_id="></p>-->
+                            <!-- remove searched users-->
+                            <p><a href="user-remove.php?user_id=<?php echo $user_id ?>" title="Remove">Remove Profile</a></p>
                         </div>
                     </div>
                 </div>
