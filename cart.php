@@ -19,8 +19,6 @@ if (isset($_SESSION["username"])) {
     //if the user is not logged in send them to the home page
     header("location:index.php");
 }
-
-
 ?>
 <!--title-->
 <title>Cart</title>
