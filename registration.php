@@ -8,6 +8,13 @@ include "template.php";
  * This page is for users to register a new account
  */
 
+//if the user is logged in
+if (!isset($_SESSION["username"])) {
+} else {
+    //if the user is not logged in send them to the home page
+    header("location:index.php");
+}
+
 ?>
 <!--title-->
 <title>User Registration</title>
