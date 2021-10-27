@@ -7,6 +7,18 @@ ob_start(); //sometimes header redirects dont work this fixes the problem
  * This is for admins to add a new user into the database
  */
 
+//if the user is logged in
+if (isset($_SESSION["username"])) {
+    //if the user is an admin
+    if ($_SESSION["level"] == "Administrator") {
+    } else {
+        //if the user is not an admin send them to the home page
+        header("location:index.php");
+    }
+} else {
+    //if the user is not logged in send them to the home page
+    header("location:index.php");
+}
 
 ?>
 <!--title-->
