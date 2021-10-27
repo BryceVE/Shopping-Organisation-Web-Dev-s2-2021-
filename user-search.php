@@ -8,6 +8,19 @@ include "template.php";
  * It displays the details of the user searched and options to edit or delete it
  */
 
+//if the user is logged in
+if (isset($_SESSION["username"])) {
+    //if the user is an admin
+    if ($_SESSION["level"] == "Administrator") {
+    } else {
+        //if the user is not an admin send them to the home page
+        header("location:index.php");
+    }
+} else {
+    //if the user is not logged in send them to the home page
+    header("location:index.php");
+}
+
 ?>
 
 <!--title-->
