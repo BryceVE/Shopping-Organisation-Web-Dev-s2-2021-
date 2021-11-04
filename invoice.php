@@ -62,7 +62,7 @@ if (empty($_GET["order"])) { // Showing the list of open order (case 1)
             //for each order the user has made repeat the following
             foreach ($unique_orders as $order_ID) {
                 //display the order id and make it a link to the order id
-                echo "<p><a href='invoice.php?order=" . $order_ID . "'>Order : " . $order_ID . "</a></p>";
+                echo "<p><a href='invoice.php?order=" . $order_ID . "'>Order: " . $order_ID . "</a></p>";
             }
         } else { // Case 3
             echo "You don't have any open orders. Please make an order to view them<br><br>";
