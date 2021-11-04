@@ -84,7 +84,7 @@ if (empty($_GET["order"])) { // Showing the list of open order (case 1)
 } else { // Case 2 - There is an order code in the URL
     $order_id = $_GET["order"];
     //heading with order id in it
-    echo"<h1 class='text-primary'>Invoice -". $order_id ."</h1>";
+    echo"<h1 class='text-primary'>Invoice - ". $order_id ."</h1>";
     //p = products table; o = order table
     $query = $conn->query("SELECT p.productName, p.price, o.quantity, p.price*o.quantity as SubTotal, o.orderDate, o.status FROM orderDetails o INNER JOIN products p on o.productCode = p.code WHERE orderCode='$order_id'");
 
