@@ -116,7 +116,7 @@ if (empty($_GET["order"])) { // Showing the list of open order (case 1)
     }
 
     //displays total cost
-    echo"<div class='row'><div class='col'></div><div class='col'></div><div class='col display-4'>Total : $". $total ."</div></div>";
+    echo"<div class='row'><div class='col'></div><div class='col'></div><div class='col display-4'>Total: $". $total ."</div></div>";
     //displays when the order was submitted
     echo"<div class='row'><div class='col'></div><div class='col'></div><div class='col'>". $orderDate ."</div></div>";
 
